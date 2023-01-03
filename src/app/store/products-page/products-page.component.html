@@ -1,0 +1,4 @@
+<div style="padding: 16px; flex: auto;">
+    <app-product style="flex-wrap: wrap;" *ngFor="let product of products" [product]="product"
+        (addProductEvent)="addProductToCart($event)"></app-product>
+</div>

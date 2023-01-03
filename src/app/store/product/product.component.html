@@ -1,0 +1,11 @@
+<div class="border rounded flex m-1 shadow">
+
+    <a routerLink="/products/{{product.id}}">
+        <img class="rounded" [src]="product.url" alt="{{product.name}}">
+        <div class="p-1">
+            <h3>{{product.name}}</h3>
+            <p>{{product.price | currency}}</p>
+            <button class="rounded" (click)="addToCart(product)">Buy</button>
+        </div>
+    </a>
+</div>

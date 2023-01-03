@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+$font-stack: Helvetica, sans-serif;
+$primary-font-color: #263238;
+$primary-color: #ee6002;
+$secondary-color: #0290ee;
+$light-color: #eceff1;
+$white: #fff;
+
+body {
+    font: 100% $font-stack;
+    color: $primary-font-color;
+}

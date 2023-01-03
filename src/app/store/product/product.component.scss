@@ -1,0 +1,60 @@
+@import "../../../styles";
+
+.border {
+    border: 1px solid;
+    border-color: $light-color;
+}
+
+.m-1 {
+    margin: 16px 1px;
+}
+
+.p-1 {
+    padding: 16px;
+}
+
+.rounded {
+    border-radius: 20px;
+}
+
+.flex {
+    flex: auto;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    color: $white;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: $primary-color;
+    border: none;
+    padding: 6px 16px;
+    margin: 6px;
+}
+
+button:hover {
+    background-color: adjust-hue($color: $primary-color, $degrees: 5);
+}
+
+p,
+h3 {
+    margin: 0;
+    padding: 4px 8px;
+}
+
+.shadow {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 20px;
+}
+
+a {
+    color: $primary-font-color;
+    text-decoration: none;
+}
+
+a:visited {
+    color: $primary-font-color;
+    text-decoration: wavy;
+}
