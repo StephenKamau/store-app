@@ -127,6 +127,7 @@ h1 {
 }
 
 .nav-items {
+    display: inline;
     text-decoration: none;
 }
 
@@ -177,12 +178,22 @@ a:visited {
     border-radius: 5px;
 }
 
+.counter {
+    background-color: $white;
+    margin-left: 8px;
+    border-radius: 100%;
+    color: $primary-color;
+    padding: 4px 8px;
+    text-decoration-line: underline;
+    text-decoration: wavy;
+}
+
 input,
 select {
     outline: none !important;
 }
 
-.center{
+.center {
     align-items: center;
     justify-content: center;
     align-content: center;

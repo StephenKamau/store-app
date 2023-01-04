@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Cart } from '../models/Cart';
 import { Product } from '../models/Product';
 
@@ -8,6 +9,8 @@ import { Product } from '../models/Product';
 export class CartService {
 
   cart: Cart[] = [];
+
+  cartItemQuantity$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   constructor() { }
 
@@ -25,6 +28,7 @@ export class CartService {
     } else {
       this.cart.push({ quantity: quantity, product });
     }
+    this.cartItemQuantity$.next(this.cart.length);
   }
 
   update(cart: Cart): void {
