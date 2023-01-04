@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from './services/cart.service';
-import { BehaviorSubject } from 'rxjs';
+import { shareReplay } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,11 @@ export class AppComponent implements OnInit {
 
   constructor(public cartService: CartService) { }
   ngOnInit(): void {
-
+    this.cartService.getCartItems().subscribe(cart => {
+      this.cartService.cartItemQuantity$.next(cart.length);
+      shareReplay()
+    }
+    );
   }
 
 }

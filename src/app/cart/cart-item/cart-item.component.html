@@ -1,0 +1,22 @@
+<div class="grid-2">
+    <div class="border rounded m-1 col-2">
+        <img class="rounded card-img-fixed" [src]="cart.product.url" alt="{{cart.product.name}}">
+        <div class="p-1">
+            <div class="grid">
+                <div>
+                    <h3>{{cart.product.name}}</h3>
+                    <p>{{cart.product.price | currency}}</p>
+                </div>
+                <div>
+                    <form class="grid-2" #addToCartForm="ngForm" (submit)="updateCart(cart)">
+                        <input type="number" class="border rounded-small" name="quantity" id="quantity"
+                            [(ngModel)]="quantity" (ngModelChange)="updateCartWithQuantity($event,cart)">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="p-1">
+            <button type="submit" class="rounded" (click)="updateCart(cart)">Add to cart</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div *ngIf="cart.length>0" class="grid-wide">
+    <div class="row">
+        <app-cart-item *ngFor="let cartItem of cart" [cart]="cartItem"
+            (cartUpdateEvent)="updateCart($event)"></app-cart-item>
+    </div>
+    <div class="col-2">
+        <app-address-form></app-address-form>
+    </div>
+</div>
+<div *ngIf="!(cart.length>0)" class="grid-wide">
+    <div class="row">
+        <h1>Your cart is empty!</h1>
+        <div class="p-1">
+            <a  class="rounded link" routerLink="">Start Shopping</a>
+        </div>
+    </div>
+</div>
