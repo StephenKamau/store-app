@@ -9,3 +9,140 @@ body {
     font: 100% $font-stack;
     color: $primary-font-color;
 }
+
+.border {
+    border: 1px solid;
+    border-color: $light-color;
+}
+
+.m-1 {
+    margin: 16px 1px;
+}
+
+.m-default {
+    margin: 16px;
+}
+
+.p-1 {
+    padding: 4px 8px;
+}
+
+.rounded {
+    border-radius: 20px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    grid-auto-rows: auto;
+    align-items: center;
+}
+
+@media (max-width: 500px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        grid-auto-rows: auto;
+    }
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    color: $white;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: $primary-color;
+    border: none;
+    padding: 6px 16px;
+    margin-bottom: 8px;
+}
+
+button:hover {
+    background-color: adjust-hue($color: $primary-color, $degrees: 10);
+}
+
+p,
+h3 {
+    margin: 0;
+    padding: 4px 8px;
+}
+
+.shadow {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 20px;
+}
+
+h1 {
+    font-size: x-large;
+}
+
+.nav-items li {
+    margin: 6px;
+    display: inline;
+    list-style: none;
+    text-decoration: none;
+}
+
+.font-white {
+    color: $white;
+}
+
+.nav-items {
+    text-decoration: none;
+}
+
+.card>a {
+    color: $primary-font-color;
+    text-decoration: none;
+}
+
+.card>a:visited {
+    color: $primary-font-color;
+    text-decoration: wavy;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+.card {
+    transition-property: transform;
+    transition-duration: 0.25s;
+}
+
+.card:hover {
+    transform: scale(1.02, 1.02);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 100px;
+}
+
+.link {
+    text-decoration: none;
+    background-color: black;
+    padding: 6px 16px;
+    color: $white;
+    transition-property: box-shadow, background-color;
+    transition-duration: 0.25s;
+}
+
+.active-link {
+    // color: $primary-font-color;
+    background-color: $primary-color;
+}
+
+.link:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 100px;
+}
+
+.rounded-small {
+    border-radius: 5px;
+}

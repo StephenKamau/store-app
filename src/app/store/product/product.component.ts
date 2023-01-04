@@ -13,6 +13,7 @@ export class ProductComponent {
 
   addToCart(product: Product): void {
     this.addProductEvent.emit(product);
+    alert(`${product.name} added to cart`);
   }
 
 }
