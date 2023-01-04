@@ -11,26 +11,24 @@ export class CartService {
 
   constructor() { }
 
-  save(product: Product): void {
+  save(product: Product, quantity: number): void {
     if (this.cart.length > 0) {
       // retrieve the cart item if the array has length > 0
       const currentCart = this.cart.filter(cart => cart.product.id === product.id)[0];
       if (currentCart !== undefined && currentCart !== null) {
-        currentCart.quantity += 1;
+        currentCart.quantity += quantity;
         // filter out the item from the cart for reinsertion
         this.cart = [...this.cart.filter(cart => cart.product.id !== product.id), currentCart];
       } else {
-        this.cart.push({ quantity: 1, product });
+        this.cart.push({ quantity: quantity, product });
       }
     } else {
-      this.cart.push({ quantity: 1, product });
+      this.cart.push({ quantity: quantity, product });
     }
-    console.log(this.cart);
   }
 
   update(cart: Cart): void {
     // filter out the item from the cart for reinsertion
     this.cart = [...this.cart.filter(c => c.product.id !== cart.product.id), cart];
-    console.log(this.cart);
   }
 }

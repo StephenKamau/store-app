@@ -1,1 +1,7 @@
-<app-product-detail></app-product-detail>
+<app-product-detail [product]="product" (addToCartEvent)="addToCart($event)">
+</app-product-detail>
+<div class="grid-2 center">
+    <div class="col-2 p-1 m-1">
+        <a class="link rounded-small" routerLink="">Back to Product list</a>
+    </div>
+</div>

@@ -12,9 +12,11 @@ export class ProductDetailComponent {
   @Input() product!: Product;
   @Output() addToCartEvent: EventEmitter<Cart> = new EventEmitter<Cart>();
 
+  quantity: string = '1';
+
   addToCart(product: Product): void {
-    this.addToCartEvent.emit();
-    alert(`${product.name} added to cart`);
+    this.addToCartEvent.emit({ quantity: parseInt(this.quantity), product });
+    alert(`${this.quantity} ${product.name}(s) added to cart`);
   }
 
 }

@@ -5,6 +5,7 @@ import { ProductsPageComponent } from './products-page/products-page.component';
 import { StoreRoutingModule } from './store-routing.module';
 import { ProductDetailPageComponent } from './product-detail-page/product-detail-page.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
   ],
   imports: [
     CommonModule,
-    StoreRoutingModule
+    StoreRoutingModule,
+    FormsModule
   ]
 })
 export class StoreModule { }

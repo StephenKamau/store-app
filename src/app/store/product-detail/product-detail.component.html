@@ -1,13 +1,32 @@
-<div class="border rounded m-1 shadow card">
-
-    <a routerLink="/products/{{product.id}}">
-        <img class="rounded" [src]="product.url" alt="{{product.name}}">
+<div class="grid-2">
+    <div class="border rounded m-1 col-2">
+        <img class="rounded card-img-fixed" [src]="product.url" alt="{{product.name}}">
         <div class="p-1">
-            <h3>{{product.name}}</h3>
-            <p>{{product.price | currency}}</p>
+            <div class="grid">
+                <div>
+                    <h3>{{product.name}}</h3>
+                    <p>{{product.price | currency}}</p>
+                </div>
+                <div>
+                    <form class="grid-2" #addToCartForm="ngForm" (submit)="addToCart(product)">
+                        <select class="border rounded-small" name="quantity" id="quantity" [(ngModel)]="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
         </div>
-    </a>
-    <div class="p-1">
-        <button class="rounded" (click)="addToCart(product)">Add to cart</button>
+        <div class="p-1">
+            <button type="submit" class="rounded" (click)="addToCart(product)">Add to cart</button>
+        </div>
     </div>
 </div>

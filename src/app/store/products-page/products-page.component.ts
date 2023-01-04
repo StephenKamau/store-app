@@ -19,7 +19,7 @@ export class ProductsPageComponent implements OnInit {
   }
 
   addProductToCart(product: Product) {
-    this.cartService.save(product);
+    this.cartService.save(product, 1);
   }
 
 }

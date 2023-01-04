@@ -44,12 +44,42 @@ body {
     align-items: center;
 }
 
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    align-items: center;
+}
+
+.card-img-fixed {
+    height: 50vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.col-2 {
+    grid-column: span 2/4;
+    column-gap: 10px;
+}
+
 @media (max-width: 500px) {
     .grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         grid-auto-rows: auto;
+    }
+
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: auto;
+        align-items: center;
+    }
+
+    .col-2 {
+        grid-column: span 4/4;
+        column-gap: 10px;
     }
 }
 
@@ -145,4 +175,16 @@ a:visited {
 
 .rounded-small {
     border-radius: 5px;
+}
+
+input,
+select {
+    outline: none !important;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
 }
