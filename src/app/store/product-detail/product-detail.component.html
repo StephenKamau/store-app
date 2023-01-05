@@ -2,13 +2,13 @@
     <div class="border rounded m-1 col-2">
         <img class="rounded card-img-fixed" [src]="product.url" alt="{{product.name}}">
         <div class="p-1">
-            <div class="grid">
+            <div class="grid-2">
                 <div>
                     <h3>{{product.name}}</h3>
                     <p>{{product.price | currency}}</p>
                 </div>
                 <div>
-                    <form class="grid-2" #addToCartForm="ngForm" (submit)="addToCart(product)">
+                    <form #addToCartForm="ngForm" (ngSubmit)="addToCart(product)">
                         <select class="border rounded-small" name="quantity" id="quantity" [(ngModel)]="quantity">
                             <option value="1">1</option>
                             <option value="2">2</option>

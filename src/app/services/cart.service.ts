@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, map, Observable, of, shareReplay } from 'rxjs';
+import { Address } from '../models/Address';
 import { Cart } from '../models/Cart';
 import { Product } from '../models/Product';
 
@@ -7,6 +8,12 @@ import { Product } from '../models/Product';
   providedIn: 'root'
 })
 export class CartService {
+
+  private address: Address = {
+    fullname: '',
+    address: '',
+    creditCardNumber: 0
+  }
 
   private cart: Cart[] = [];
 
@@ -47,9 +54,32 @@ export class CartService {
       this.cart = [...this.cart.filter(c => c.product.id !== cart.product.id)];
     }
     if (cart.quantity > 0) {
-      this.cart = [...this.cart.filter(c => c.product.id !== cart.product.id), cart];
+      this.cart = [cart, ...this.cart.filter(c => c.product.id !== cart.product.id)];
     }
     localStorage.setItem(this.STORE_KEY, JSON.stringify(this.cart));
+    this.cartItemQuantity$.next(this.cart.length);
+  }
+
+  addAddress(address: Address): void {
+    this.address = address;
+    localStorage.clear();
+  }
+
+  getCustomer(): string {
+    return this.address.fullname;
+  }
+
+  getOrderTotal(): Observable<number> {
+    return this.getCartItems().pipe(map(cartItems => cartItems.reduce((total, cart) => { return total += cart.quantity * cart.product.price }, 0)), shareReplay());
+  }
+
+  clear(): void {
+    this.cart = [];
+    this.address = {
+      fullname: '',
+      address: '',
+      creditCardNumber: 0
+    };
     this.cartItemQuantity$.next(this.cart.length);
   }
 }

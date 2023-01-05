@@ -1,1 +1,11 @@
-<p>order-submited works!</p>
+<div *ngIf="orderTotal$ |async " class="grid-2">
+    <div class="col-2">
+        <h1>Success🥳</h1>
+        <p>Thank you {{customer}}.</p>
+        <p>Your {{(orderTotal$ | async)|currency}} order has been confirmed</p>
+        <p>Please allow 1-5 business day(s) for shipping</p>
+        <div class="m-1 p-1">
+            <a class="rounded link" routerLink="">Back Shopping</a>
+        </div>
+    </div>
+</div>

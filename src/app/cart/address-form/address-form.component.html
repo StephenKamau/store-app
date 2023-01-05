@@ -1,1 +1,15 @@
-<p>address-form works!</p>
+<form #addressForm="ngForm" (ngSubmit)="submit()" class="p-1 m-1">
+    <label for="name">Full name</label>
+    <input id="name" type="text" name="fullname" minlength="3" placeholder="(Minimum 3 characters)" ngModel
+        [(ngModel)]="address.fullname" required>
+    <label for="address">Address</label>
+    <input id="address" type="text" name="address" minlength="10" placeholder="(Minimum 10 characters)" ngModel
+        [(ngModel)]="address.address" required>
+    <label for="creditCard">Credit card number</label>
+    <input id="creditCard" type="text" name="creditCardNumber" minlength="16" maxlength="16" placeholder="(16-Digit number)" ngModel
+        [(ngModel)]="creditCardNumber" required>
+    <p>We will never share your payment information with anyone else.</p>
+    <p style="color: red;" *ngIf="addressForm.invalid">Please fill in required values as specified to be able to submit
+        the form.</p>
+    <button [disabled]="addressForm.invalid" class="m-1 rounded-small link" type="submit">Place order</button>
+</form>

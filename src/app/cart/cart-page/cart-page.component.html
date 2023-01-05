@@ -2,9 +2,10 @@
     <div class="row">
         <app-cart-item *ngFor="let cartItem of cart" [cart]="cartItem"
             (cartUpdateEvent)="updateCart($event)"></app-cart-item>
+            <h1 style="text-align: center;" class="m-1 p-1">Order total: {{(total$|async)|currency}}</h1>
     </div>
     <div class="col-2">
-        <app-address-form></app-address-form>
+        <app-address-form (submitEvent)="placeOrder($event)"></app-address-form>
     </div>
 </div>
 <div *ngIf="!(cart.length>0)" class="grid-wide">
