@@ -12,6 +12,15 @@ MyStore is Angular application that allows users to view a list of available pro
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Project Structure
+
+The app has two modules:
+
+* `store module`: 
+    * Displays the products with products page and product details page.
+* `cart module`: 
+    * Displays the cart with cart page and order submitted page.
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
